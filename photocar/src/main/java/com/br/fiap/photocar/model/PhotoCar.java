@@ -8,7 +8,7 @@ public class PhotoCar {
 
     @Id
     private String id;
-    private String photo;
+    private byte[] photo;
     
 	public String getId() {
 		return id;
@@ -16,10 +16,10 @@ public class PhotoCar {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
-	public void setPhoto(String photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
     
