@@ -2,13 +2,19 @@ package com.br.fiap.photocar.controller;
 
 
 
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.br.fiap.photocar.component.PhotoCarComponent;
 import com.br.fiap.photocar.model.PhotoCar;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -24,9 +30,10 @@ public class PhotoCarController {
     public List<PhotoCar> buscarTodos(){
         return photoCarComponent.buscarTodos();
     }
-
+    
+    @RequestMapping(value="/salvar", produces={"image/jpeg"})
     @PostMapping
-    public void salvar(@RequestBody PhotoCar item) {
+    public void salvar(@RequestHeader PhotoCar item) {
     	photoCarComponent.salvar(item);
     }
 
